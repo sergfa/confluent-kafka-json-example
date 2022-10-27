@@ -32,11 +32,6 @@ Verify that topic was created:
 
 `pip install requirements.txt`
 
-## Update IP/HOST 
-
-Update HOST variable in kafka_utils.py with ip address of Kafka machine
-
-
 ## Run producer
 
 `python producer.py localhost --topic my_first_topic`
