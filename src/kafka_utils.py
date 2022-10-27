@@ -39,5 +39,6 @@ class ClientFactory:
     def get_args(prog_name: str):
         parser = argparse.ArgumentParser(prog=prog_name, description='Working with Kafka')
         parser.add_argument('kafka', help='Host/IP address of Kafka broker', type=str)
+        parser.add_argument('--topic', help='Producers write data to topics, and consumers read data from topics', type=str, default='my_first_topic')
         args = parser.parse_args()
         return args

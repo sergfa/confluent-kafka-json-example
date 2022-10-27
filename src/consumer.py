@@ -33,7 +33,8 @@ def start_consumer(consumer: Consumer, topics: List[str]):
 def main():
     args = ClientFactory.get_args(sys.argv[0])
     consumer = ClientFactory.get_consumer(host=args.kafka)
-    start_consumer(consumer, ['discovery'])
+    topics = [args.topic]
+    start_consumer(consumer, topics=topics)
 
 
 if __name__ == "__main__":
