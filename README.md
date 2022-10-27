@@ -1,10 +1,12 @@
 # Using Kafka with confluent_kafka library
 
 An example how to use confluent_kafka python library to produce and consume json messages
+You can use an existing kafka broker or to run a docker kafka container
+The docker-compose.yaml is provided 
 
 ## docker-compose.yml
 
-* Replace localhost with hostname of your machine or leave it as is if you run it on your local machine
+* Replace localhost with hostname of your machine or leave it as is if you are planning to run docker container on your local machine
 * Copy docker-compose.yml to your machine
 
 ## Run docker compose
@@ -15,11 +17,11 @@ An example how to use confluent_kafka python library to produce and consume json
 
 `docker exec -it kafka /bin/sh`
 
-## Create discovery Kafka topic
+## Create Kafka topic
 
 All Kafka shell scripts are located in /opt/kafka_<version>/bin:
 
-`kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic discovery`
+`kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic my_first_topic`
 
 Verify that topic was created:
 
@@ -37,8 +39,8 @@ Update HOST variable in kafka_utils.py with ip address of Kafka machine
 
 ## Run producer
 
-`python producer.py localhost`
+`python producer.py localhost --topic my_first_topic`
 
 ## Run consumer
 
-`python consumer.py localhost`
+`python consumer.py localhost --topic my_first_topic`
